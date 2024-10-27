@@ -5,14 +5,16 @@ import 'package:neopixel_app_flutter/theme/app_theme.dart';
 import 'package:neopixel_app_flutter/view/ble_off_view.dart';
 import 'package:neopixel_app_flutter/view/home/home_view.dart';
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+
+
+class MyAppView extends StatefulWidget {
+  const MyAppView({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MyAppView> createState() => _MyAppViewState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppViewState extends State<MyAppView> {
   BluetoothAdapterState _adapterState = BluetoothAdapterState.unknown;
 
   late StreamSubscription<BluetoothAdapterState> _adapterStateStateSubscription;

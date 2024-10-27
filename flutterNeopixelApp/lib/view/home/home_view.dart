@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
-import 'package:flutter_circle_color_picker/flutter_circle_color_picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 import 'package:neopixel_app_flutter/constants/ble_consts.dart';
@@ -18,6 +17,8 @@ import 'package:neopixel_app_flutter/view/home/widget/led_color_picker.dart';
 import 'package:neopixel_app_flutter/view/home/widget/led_ready_color.dart';
 import 'package:neopixel_app_flutter/view/home/widget/led_status_widget.dart';
 import 'package:neopixel_app_flutter/view/scan/scan_ble_device_view.dart';
+import 'package:flutter_circle_color_picker/flutter_circle_color_picker.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.adapterState});
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
   late StreamSubscription<List<ScanResult>> _scanResultsSubscription;
   late StreamSubscription<bool> _isScanningSubscription;
 
-  late final _circleColorPickerController;
+  late final CircleColorPickerController _circleColorPickerController;
 
   @override
   void initState() {
@@ -193,9 +194,8 @@ class _HomePageState extends State<HomePage> {
                   },
                   currentValue: _ledModel.brightnessValue,
                 ),
-                _ledModel.selectedAnimation == 0 ||
-                        _ledModel.selectedAnimation == 4
-                    ? Column(
+                if (_ledModel.selectedAnimation == 0 ||
+                        _ledModel.selectedAnimation == 4) Column(
                         children: [
                           LedReadyColor(
                             selectedColor: (p0) async {
@@ -230,8 +230,7 @@ class _HomePageState extends State<HomePage> {
                             },
                           ),
                         ],
-                      )
-                    : const SizedBox.shrink(),
+                      ) else const SizedBox.shrink(),
                 const Gap(homeSizedHeight * 2.5),
               ],
             ),

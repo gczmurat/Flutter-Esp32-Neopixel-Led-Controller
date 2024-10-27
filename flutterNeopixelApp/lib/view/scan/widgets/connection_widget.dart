@@ -1,10 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
-import 'package:gap/gap.dart';
 import 'package:neopixel_app_flutter/constants/size.dart';
 import 'package:neopixel_app_flutter/theme/app_theme.dart';
 import 'package:neopixel_app_flutter/widget/head_widget.dart';
+import 'package:gap/gap.dart';
+
 
 class ConnectionWidget extends StatelessWidget {
   const ConnectionWidget({

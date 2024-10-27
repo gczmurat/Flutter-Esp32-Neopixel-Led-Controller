@@ -31,8 +31,7 @@ class ScanBleDevicePage extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           children: [
             const Gap(homeSizedHeight),
-            isScanning
-                ? ListView(
+            if (isScanning) ListView(
                     shrinkWrap: true,
                     children: [
                       const LinearProgressIndicator(
@@ -46,7 +45,7 @@ class ScanBleDevicePage extends StatelessWidget {
                             tween: Tween(begin: timerValue, end: 0.0),
                             duration: Duration(seconds: timerValue),
                             builder: (_, dynamic value, child) => Text(
-                              "${value.toInt()}sec",
+                              '${value.toInt()}sec',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: headSize,
@@ -57,8 +56,7 @@ class ScanBleDevicePage extends StatelessWidget {
                         ],
                       ),
                     ],
-                  )
-                : const HeadWidget(title: 'Devices found'),
+                  ) else const HeadWidget(title: 'Devices found'),
             const Divider(),
             ListView.builder(
               shrinkWrap: true,

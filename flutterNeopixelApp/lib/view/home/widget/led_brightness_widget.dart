@@ -3,6 +3,7 @@ import 'package:neopixel_app_flutter/constants/size.dart';
 import 'package:neopixel_app_flutter/theme/app_theme.dart';
 import 'package:neopixel_app_flutter/widget/head_widget.dart';
 
+
 class LedBrightness extends StatefulWidget {
   LedBrightness({
     super.key,

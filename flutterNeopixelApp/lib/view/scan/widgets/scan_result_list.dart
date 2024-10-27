@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:neopixel_app_flutter/constants/size.dart';
 
+
 class BluetoothDeviceList extends ListTile {
   BluetoothDeviceList({
     super.key,
@@ -24,8 +25,7 @@ class BluetoothDeviceList extends ListTile {
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              result.rssi != null
-                  ? Container(
+              if (result.rssi != null) Container(
                       margin: const EdgeInsets.all(8.0),
                       child: DefaultTextStyle(
                         style: _computeTextStyle(result.rssi),
@@ -37,8 +37,7 @@ class BluetoothDeviceList extends ListTile {
                           ],
                         ),
                       ),
-                    )
-                  : const SizedBox(width: 0, height: 0),
+                    ) else const SizedBox(width: 0, height: 0),
               // device.isConnected
               //     ? const Icon(Icons.bluetooth_connected_outlined)
               //     : const SizedBox(width: 0, height: 0),

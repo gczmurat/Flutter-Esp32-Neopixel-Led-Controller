@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neopixel_app_flutter/constants/size.dart';
 
+
 class SwitchInfoText extends StatelessWidget {
   const SwitchInfoText({
     super.key,
